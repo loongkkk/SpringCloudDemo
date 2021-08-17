@@ -19,6 +19,7 @@
         <module>eur</module>
         <module>ser_client</module>
         <module>ser_client1</module>
+        <module>zull</module>
     </modules>
     <packaging>pom</packaging>
     <name>SpringCloudDemo</name>
