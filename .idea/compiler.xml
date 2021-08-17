@@ -6,15 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ser_client" />
+        <module name="service-hi" />
         <module name="eur" />
+        <module name="ser_client" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eur" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
       <module name="ser_client" options="-parameters" />
+      <module name="service-hi" options="-parameters" />
     </option>
   </component>
 </project>
