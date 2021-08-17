@@ -10,6 +10,7 @@
         <module name="eur" />
         <module name="ser_client" />
         <module name="eureka-server" />
+        <module name="ser_client1" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +19,7 @@
       <module name="eur" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="ser_client" options="-parameters" />
+      <module name="ser_client1" options="-parameters" />
       <module name="service-hi" options="-parameters" />
     </option>
   </component>
