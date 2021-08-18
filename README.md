@@ -1,3 +1,3 @@
 # SpringCloudDemo
 
-This is a demo to show how to nake a Spring Cloud project
+This is used to learn how to use Spring Cloud.
