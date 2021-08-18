@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zull" />
-        <module name="ser_client2" />
         <module name="eur" />
         <module name="service-hi2" />
         <module name="service-hi1" />
@@ -15,9 +14,12 @@
         <module name="zuul" />
         <module name="ser_client" />
         <module name="eureka-server" />
-        <module name="ser_client1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ser_client1" target="1.8" />
+      <module name="ser_client2" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
