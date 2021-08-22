@@ -15,4 +15,6 @@ public class User {
     private String username;
 
     private Double total;
+
+    private Integer totalTime;
 }

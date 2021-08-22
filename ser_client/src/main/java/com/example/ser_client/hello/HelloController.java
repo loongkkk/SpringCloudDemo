@@ -51,11 +51,13 @@ public class HelloController {
             return res;
         }
         body = userDao.getOneByUserId(body.getUserId());
+        body.setTotalTime(body.getTotalTime() + 1);
         UserVo userVo = new UserVo();
         userVo.setUserId(body.getUserId());
         userVo.setUsername(body.getUsername());
         userVo.setSomething((double) Math.round((Math.random() * 100 % 2) * 100) / 100);
         userVo.setTotal((double) Math.round((body.getTotal() + userVo.getSomething()) * 100 )/ 100);
+        userVo.setTotalTime(body.getTotalTime());
         res.put("code", 200);
         res.put("message", userVo);
         body.setTotal(userVo.getTotal());
@@ -85,8 +87,14 @@ public class HelloController {
             res.put("message", "用户名已存在");
             return res;
         }
+        if ("".equals(body.getUsername())){
+            res.put("code", 400);
+            res.put("message", "请输入用户名");
+            return res;
+        }
         body.setTotal(0.0);
-        body.setUserId(IdUtil.getSnowflake(1, 1).nextId());
+        body.setTotalTime(0);
+        body.setUserId(IdUtil.getSnowflake(1, 1).nextId() % 100000000000L);
         userDao.save(body);
         res.put("code", 200);
         res.put("message", null);
