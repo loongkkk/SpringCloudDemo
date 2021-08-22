@@ -35,7 +35,7 @@ public class HelloController {
         JSONObject res = new JSONObject();
         res.put("ip", getIpAddr());
         res.put("port", port);
-        res.put("message", "hello");
+        res.put("message", "hello world");
         return  res;
     }
 
