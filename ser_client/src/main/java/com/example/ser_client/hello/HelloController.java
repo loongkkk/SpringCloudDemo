@@ -33,8 +33,8 @@ public class HelloController {
         response.addHeader("Content-Type", "application/json;charset=UTF-8");
         response.addHeader("Access-Control-Allow-Origin", "*");
         JSONObject res = new JSONObject();
-        res.put("server.ip", getIpAddr());
-        res.put("server.port", port);
+        res.put("ip", getIpAddr());
+        res.put("port", port);
         res.put("message", "hello");
         return  res;
     }
