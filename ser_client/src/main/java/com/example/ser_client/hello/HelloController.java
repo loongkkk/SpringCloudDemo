@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -17,8 +14,11 @@ import java.util.Enumeration;
 import com.alibaba.fastjson.JSONObject;
 import cn.hutool.core.util.IdUtil;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Configuration
 @Controller
+@CrossOrigin
 public class HelloController {
 
     @Value("${server.port}")
@@ -29,7 +29,9 @@ public class HelloController {
 
     @GetMapping("/hello")
     @ResponseBody
-    public JSONObject hello(){
+    public JSONObject hello(HttpServletResponse response){
+        response.addHeader("Content-Type", "application/json;charset=UTF-8");
+        response.addHeader("Access-Control-Allow-Origin", "*");
         JSONObject res = new JSONObject();
         res.put("server.ip", getIpAddr());
         res.put("server.port", port);
@@ -39,7 +41,9 @@ public class HelloController {
 
     @PostMapping("/getSomething")
     @ResponseBody
-    public JSONObject getSomething(@RequestBody User body){
+    public JSONObject getSomething(@RequestBody User body, HttpServletResponse response){
+        response.addHeader("Content-Type", "application/json;charset=UTF-8");
+        response.addHeader("Access-Control-Allow-Origin", "*");
         JSONObject res = new JSONObject();
         if (!userDao.existsByUserId(body.getUserId())){
             res.put("code", 400);
@@ -61,7 +65,9 @@ public class HelloController {
 
     @GetMapping("/getUserList")
     @ResponseBody
-    public JSONObject getUserList(){
+    public JSONObject getUserList(HttpServletResponse response){
+        response.addHeader("Content-Type", "application/json;charset=UTF-8");
+        response.addHeader("Access-Control-Allow-Origin", "*");
         JSONObject res = new JSONObject();
         res.put("code", 200);
         res.put("message",  userDao.findAll());
@@ -70,7 +76,9 @@ public class HelloController {
 
     @PostMapping("/addUser")
     @ResponseBody
-    public JSONObject addUser(@RequestBody User body){
+    public JSONObject addUser(@RequestBody User body, HttpServletResponse response){
+        response.addHeader("Content-Type", "application/json;charset=UTF-8");
+        response.addHeader("Access-Control-Allow-Origin", "*");
         JSONObject res = new JSONObject();
         if (userDao.existsByUsername(body.getUsername())){
             res.put("code", 400);
@@ -87,7 +95,9 @@ public class HelloController {
 
     @PostMapping("/deleteUser")
     @ResponseBody
-    public JSONObject deleteUser(@RequestBody User body){
+    public JSONObject deleteUser(@RequestBody User body, HttpServletResponse response){
+        response.addHeader("Content-Type", "application/json;charset=UTF-8");
+        response.addHeader("Access-Control-Allow-Origin", "*");
         JSONObject res = new JSONObject();
         if (!userDao.existsByUserId(body.getUserId())){
             res.put("code", 400);
