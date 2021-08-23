@@ -9,16 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="zull" />
         <module name="eur" />
-        <module name="config_server" />
-        <module name="service-hi" />
+        <module name="zuul" />
         <module name="ser_client" />
         <module name="eureka-server" />
-      </profile>
-      <profile name="Annotation profile for SpringCloudDemo" enabled="true">
-        <sourceOutputDir name="../zull/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../zull/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="zuul" />
+        <module name="config_server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -36,7 +30,6 @@
       <module name="ser_client" options="-parameters" />
       <module name="ser_client1" options="-parameters" />
       <module name="ser_client2" options="-parameters" />
-      <module name="service-hi" options="-parameters" />
       <module name="service-hi1" options="-parameters" />
       <module name="service-hi2" options="-parameters" />
       <module name="zull" options="-parameters" />

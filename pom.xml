@@ -18,7 +18,7 @@
     <modules>
         <module>eur</module>
         <module>ser_client</module>
-        <module>zull</module>
+        <module>zuul</module>
     </modules>
     <packaging>pom</packaging>
     <name>SpringCloudDemo</name>
