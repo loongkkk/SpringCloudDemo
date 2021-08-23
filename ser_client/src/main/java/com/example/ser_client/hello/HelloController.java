@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Enumeration;
 
 import com.alibaba.fastjson.JSONObject;
@@ -32,11 +34,12 @@ public class HelloController {
     public JSONObject hello(HttpServletResponse response){
         response.addHeader("Content-Type", "application/json;charset=UTF-8");
         response.addHeader("Access-Control-Allow-Origin", "*");
-        JSONObject res = new JSONObject();
-        res.put("ip", getIpAddr());
-        res.put("port", port);
-        res.put("message", "hello world");
-        return  res;
+        JSONObject res0 = new JSONObject();
+        JSONObject res1 = new JSONObject();
+        res1.put("ip", getIpAddr());
+        res0.put("code", 200);
+        res0.put("message", res1);
+        return  res0;
     }
 
     @PostMapping("/getSomething")
@@ -61,6 +64,7 @@ public class HelloController {
         res.put("code", 200);
         res.put("message", userVo);
         body.setTotal(userVo.getTotal());
+        body.setUpdateTime(timeStampNow());
         userDao.save(body);
         return  res;
     }
@@ -95,6 +99,7 @@ public class HelloController {
         body.setTotal(0.0);
         body.setTotalTime(0);
         body.setUserId(IdUtil.getSnowflake(1, 1).nextId() % 100000000000L);
+        body.setUpdateTime(timeStampNow());
         userDao.save(body);
         res.put("code", 200);
         res.put("message", null);
@@ -139,5 +144,9 @@ public class HelloController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static Long timeStampNow(){
+        return LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
     }
 }

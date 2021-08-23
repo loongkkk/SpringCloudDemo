@@ -1,12 +1,12 @@
 server:
-  port: 8101
+  port: 8080
 spring:
   application:
     name: zuul
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.218.130:8088/eureka/
+      defaultZone: http://192.168.31.52:8088/eureka/
 management:
   endpoints:
     web:

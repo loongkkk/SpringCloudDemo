@@ -17,4 +17,6 @@ public class User {
     private Double total;
 
     private Integer totalTime;
+
+    private Long updateTime;
 }
